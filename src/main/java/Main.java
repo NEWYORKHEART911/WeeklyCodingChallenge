@@ -13,13 +13,13 @@ public class Main {
             int sum = 0;
             for(int n=0; n<input[j].length(); n++) {
                 if(Character.isDigit(input[j].charAt(n))) {
-                    System.out.println(" digit? " + input[j].charAt(n));
                     sum += Integer.parseInt(input[j].substring(n, n+1));
                 }
             }
             result[j] = sum;
             sum = 0;
         }
+        sc.close();
 
         for(int num : result) {
             System.out.println(num);
