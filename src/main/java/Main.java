@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -7,31 +5,23 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         int size = sc.nextInt();
-        //List<int[]> triples = new ArrayList<>();
-        int[] input;
-        int inputs = 0;
-        List<Integer> ans = new ArrayList<>();
-        int max = Integer.MIN_VALUE;
-        int max2 = Integer.MIN_VALUE;
-        while(inputs < size) {
-            input = new int[3];
-            for (int j = 0; j < 3; j++) {
-                input[j] = sc.nextInt();
-                if(input[j] > max) {
-                    max2 = max;
-                    max = input[j];
-                } else if(input[j] > max2) {
-                    max2 = input[j];
+        sc.nextLine();
+        String[] input = new String[size];
+        int[] result = new int[size];
+        for(int j=0; j<size; j++) {
+            input[j] = sc.nextLine();
+            int sum = 0;
+            for(int n=0; n<input[j].length(); n++) {
+                if(Character.isDigit(input[j].charAt(n))) {
+                    System.out.println(" digit? " + input[j].charAt(n));
+                    sum += Integer.parseInt(input[j].substring(n, n+1));
                 }
             }
-            ans.add(max2);
-            max = Integer.MIN_VALUE;
-            max2 = Integer.MIN_VALUE;
-            //triples.add(input);
-            ++inputs;
+            result[j] = sum;
+            sum = 0;
         }
 
-        for(int num : ans) {
+        for(int num : result) {
             System.out.println(num);
         }
     }
